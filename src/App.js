@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserList from "./Components/JS/UserList";
 import ErrorModal from "./Components/JS/ErrorModal";
 import AddUser from "./Components/JS/AddUser";
-import Wrapper from "./Components/Helpers/Wrapper"
+// import Wrapper from "./Components/Helpers/Wrapper"
 
 function App() {
   const [userData, setUserData] = useState([]);
@@ -22,11 +22,11 @@ function App() {
     setValid(true);
   }
   return (
-    <Wrapper>
+    <React.Fragment>
       <AddUser onReturn={getData} onValidation={getValidation}/>
       {userData.length > 0 && <UserList data={userData}/>}
       {!valid &&  <ErrorModal onAccept={getAccept} title={"Invalid Data"} message={"Please enter the valid data"} hintOne={hint1} hintTwo={hint2}/>}
-    </Wrapper>
+    </React.Fragment>
   );
 }
 
