@@ -15,7 +15,7 @@ const AddUser = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const checkName = userName.trim().length !== 0;
+    const checkName = userName.trim().length !== 0 && isNaN(parseInt(userName));
     const checkAge = !isNaN(userAge) && userAge > 0;
 
     if (checkName && checkAge) {
